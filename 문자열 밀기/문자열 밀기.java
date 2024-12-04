@@ -1,3 +1,4 @@
+// 배열 기반
 class Solution {
     public int solution(String A, String B) {
         for (int i = 0;  i < A.length(); i++) {
@@ -19,5 +20,23 @@ class Solution {
             }
         }
         return String.valueOf(pushedAry);
+    }
+}
+
+
+// 문자열 제어
+class Solution {
+    public int solution(String A, String B) {
+        for (int i = 0; i < A.length(); i++) {
+            if (A.equals(B)) return i;
+            A = pushString(A);
+        }
+        return -1;
+    }
+    
+    // 문자열을 한 칸씩 미루는 메서드
+    private String pushString(String str) {
+        // 마지막 문자를 첫 번째로 이동시키고 나머지는 그대로 이어붙임
+        return str.charAt(str.length() - 1) + str.substring(0, str.length() - 1);
     }
 }
